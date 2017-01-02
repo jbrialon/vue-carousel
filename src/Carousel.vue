@@ -421,13 +421,13 @@
           this.handleResize()
         }, 16))
 
-        // if ('ontouchstart' in window) {
-        //   this.$el.addEventListener('touchstart', this.handleMousedown)
-        //   this.$el.addEventListener('touchend', this.handleMouseup)
-        // } else {
-        //   this.$el.addEventListener('mousedown', this.handleMousedown)
-        //   this.$el.addEventListener('mouseup', this.handleMouseup)
-        // }
+        if ('ontouchstart' in window) {
+          this.$el.addEventListener('touchstart', this.handleMousedown)
+          this.$el.addEventListener('touchend', this.handleMouseup)
+        } else {
+          this.$el.addEventListener('mousedown', this.handleMousedown)
+          this.$el.addEventListener('mouseup', this.handleMouseup)
+        }
       })
 
       this.getSlideCount()
