@@ -49,6 +49,7 @@
   .dot {
     float: left;
     cursor: pointer;
+    transition:color 200ms ease;
   }
 
   .dot-inner {
