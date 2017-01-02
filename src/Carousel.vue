@@ -3,9 +3,9 @@
     <div
       class="carousel-inner"
       v-bind:style="`
-        width: ${carouselInnerWidth}px
-        transform: translateX(${currentOffset}px)
-        transition: ${!mousedown || isAnimating ? transitionStyle : 'none'}
+        width: ${carouselInnerWidth}px;
+        transform: translateX(${currentOffset}px);
+        transition: ${!mousedown || isAnimating ? transitionStyle : 'none'};
       `"
     >
       <slot></slot>
