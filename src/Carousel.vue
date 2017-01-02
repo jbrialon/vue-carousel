@@ -310,7 +310,8 @@
        * @param  {Object} e The event object
        */
       handleMousedown (e) {
-        e.preventDefault()
+        // we don't want to prevent other click and touch in case of elements of the carousel are buttons
+        // e.preventDefault()
 
         this.mousedown = true
         this.dragStartX = ('ontouchstart' in window) ? e.touches[0].clientX : e.clientX
@@ -435,6 +436,10 @@
       if (this.isHidden) {
         this.pollForWidth()
       }
+    },
+    updated () {
+      this.getSlideCount()
+      this.recomputeCarouselWidth()
     },
     destroyed () {
       runIfBrowser(() => {
