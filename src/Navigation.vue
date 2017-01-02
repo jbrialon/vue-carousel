@@ -8,29 +8,29 @@
 <script>
   export default {
     name: 'navigation',
-    data() {
+    data () {
       return {
-        parentContainer: this.$parent,
-      };
+        parentContainer: this.$parent
+      }
     },
     computed: {
-      canAdvanceForward() {
-        return this.parentContainer.canAdvanceForward || false;
+      canAdvanceForward () {
+        return this.parentContainer.canAdvanceForward || false
       },
-      canAdvanceBackward() {
-        return this.parentContainer.canAdvanceBackward || false;
-      },
+      canAdvanceBackward () {
+        return this.parentContainer.canAdvanceBackward || false
+      }
     },
     methods: {
-      triggerPageAdvance(direction) {
+      triggerPageAdvance (direction) {
         if (direction) {
-          this.$parent.advancePage(direction);
+          this.$parent.advancePage(direction)
         } else {
-          this.$parent.advancePage();
+          this.$parent.advancePage()
         }
-      },
-    },
-  };
+      }
+    }
+  }
 </script>
 
 <style scoped>

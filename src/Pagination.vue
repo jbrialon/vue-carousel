@@ -6,7 +6,7 @@
         v-for="(page, index) in parentContainer.pageCount"
         v-on:click="parentContainer.goToPage(index)"
         :style="`
-          margin-top: ${parentContainer.paginationPadding * 2}px;
+          margin-top: ${parentContainer.paginationPadding}px;
           padding: ${parentContainer.paginationPadding}px;
         `"
       >
@@ -26,12 +26,12 @@
 <script>
   export default {
     name: 'pagination',
-    data() {
+    data () {
       return {
-        parentContainer: this.$parent,
-      };
-    },
-  };
+        parentContainer: this.$parent
+      }
+    }
+  }
 </script>
 
 <style scoped>
@@ -53,5 +53,6 @@
 
   .dot-inner {
     border-radius: 100%;
+    border:1px solid #fff;
   }
 </style>

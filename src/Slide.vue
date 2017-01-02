@@ -7,12 +7,12 @@
 <script>
   export default {
     name: 'slide',
-    data() {
+    data () {
       return {
-        width: null,
-      };
-    },
-  };
+        width: null
+      }
+    }
+  }
 </script>
 
 <style scoped>
