@@ -1,17 +1,19 @@
 <template>
   <div class="carousel">
-    <div
-      class="carousel-inner"
-      v-bind:style="`
-        width: ${carouselInnerWidth}px;
-        transform: translateX(${currentOffset}px);
-        transition: ${!mousedown || isAnimating ? transitionStyle : 'none'};
-      `"
-    >
-      <slot></slot>
+    <div class="carousel-container">
+      <div class="carousel-inner"
+        v-bind:style="`
+          width: ${carouselInnerWidth}px;
+          transform: translateX(${currentOffset}px);
+          transition: ${!mousedown || isAnimating ? transitionStyle : 'none'};
+        `"
+      >
+        <slot></slot>
+      </div>
+      <navigation v-if="navigationEnabled"></navigation>
+      <pagination v-if="paginationEnabled && pageCount > 0"></pagination>
     </div>
-    <navigation v-if="navigationEnabled"></navigation>
-    <pagination v-if="paginationEnabled && pageCount > 0"></pagination>
+  </div>
 </template>
 
 <script>
@@ -449,10 +451,13 @@
   }
 </script>
 
-<style scoped>
+<style>
 .carousel {
   width: 100%;
   position: relative;
+}
+
+.carousel-container {
   overflow: hidden;
 }
 
