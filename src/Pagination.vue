@@ -1,7 +1,7 @@
 <template>
   <div class="pagination">
     <div class="dot-container">
-      <div
+      <button
         class="dot"
         v-for="(page, index) in parentContainer.pageCount"
         v-on:click="parentContainer.goToPage(index)"
@@ -9,6 +9,7 @@
           margin-top: ${parentContainer.paginationPadding}px;
           padding: ${parentContainer.paginationPadding}px;
         `"
+        :aria-label="getAriaLabel(index, parentContainer.pageCount)"
       >
         <div
           class="dot-inner"
@@ -18,7 +19,7 @@
             background: ${(index === parentContainer.currentPage) ? parentContainer.paginationActiveColor : parentContainer.paginationColor};
           `"
         ></div>
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -29,6 +30,15 @@
     data () {
       return {
         parentContainer: this.$parent
+      }
+    },
+    methods: {
+      getAriaLabel (index, pageCount) {
+        const mapObj = {
+          '${index}': index + 1,
+          '${pageCount}': pageCount
+        }
+        return this.parentContainer.paginationText.replace(/\$\{index\}|\$\{pageCount\}/gi, matched => mapObj[matched])
       }
     }
   }
@@ -50,6 +60,12 @@
     float: left;
     cursor: pointer;
     transition:color 200ms ease;
+    appearance: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
   }
 
   .dot-inner {

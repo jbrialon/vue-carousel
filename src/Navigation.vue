@@ -1,7 +1,7 @@
 <template>
   <div class="navigation">
-    <a href="#" v-on:click.prevent="triggerPageAdvance('backward')" v-bind:class="{ disabled: !canAdvanceBackward }" class="carousel-nav carousel-nav--prev icon-arrow-left"></a>
-    <a href="#" v-on:click.prevent="triggerPageAdvance()" v-bind:class="{ disabled: !canAdvanceForward }" class="carousel-nav carousel-nav--next icon-arrow-right"></a>
+    <button v-on:click.prevent="triggerPageAdvance('backward')" :disabled="!canAdvanceBackward" v-bind:class="{ disabled: !canAdvanceBackward }" class="carousel-nav carousel-nav--prev icon-arrow-left" :aria-label="this.parentContainer.navText[0]"></button>
+    <button v-on:click.prevent="triggerPageAdvance()" :disabled="!canAdvanceForward" v-bind:class="{ disabled: !canAdvanceForward }" class="carousel-nav carousel-nav--next icon-arrow-right" :aria-label="this.parentContainer.navText[1]"></button>
   </div>
 </template>
 
@@ -48,6 +48,13 @@
     text-decoration:none;
     z-index:90;
     transition:opacity 300ms ease;
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
   }
 
   .carousel-nav--next {

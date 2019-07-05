@@ -1,7 +1,7 @@
 <template>
-  <a href="#" v-on:click.prevent="triggerPageAdvance()" v-bind:class="{ disabled: !canAdvanceForward }" class="next">
+  <button v-on:click.prevent="triggerPageAdvance()" :disabled="!canAdvanceForward" v-bind:class="{ disabled: !canAdvanceForward }" class="next" :aria-label="this.parentContainer.navText[1]">
     <slot></slot>
-  </a>
+  </button>
 </template>
 
 <script>
@@ -30,6 +30,15 @@
 </script>
 
 <style scoped>
+  button {
+    cursor: pointer;
+    appearance: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
   .disabled {
     opacity: 0.5;
     cursor: default;

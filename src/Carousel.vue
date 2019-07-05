@@ -127,6 +127,20 @@
       speed: {
         type: Number,
         default: 500
+      },
+      /**
+       * Used as aria-label in Navigation component
+       */
+      navText: {
+        type: Array,
+        default: () => ['Previous', 'Next']
+      },
+      /**
+       * Used as aria-label in Pagination component
+       */
+      paginationText: {
+        type: String,
+        default: 'item ${index} of ${pageCount}'
       }
     },
     computed: {
